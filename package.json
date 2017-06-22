@@ -1,6 +1,6 @@
 {
   "name": "@fakundo/webpack-assets-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {},
@@ -8,6 +8,10 @@
   "license": "ISC",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakundo/webpack-assets-loader"
   },
   "dependencies": {
     "fnv": "^0.1.3",
