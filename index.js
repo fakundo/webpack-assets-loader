@@ -24,12 +24,17 @@ module.exports.pitch = function (remainingRequest) {
   var options = loaderUtils.getOptions(this);
   var token = createToken(remainingRequest);
   var nextName = token + extension;
+  var source = 'module.exports = ' + JSON.stringify(options.urlPath + nextName) + ';';
 
-  fs.copy(
-    remainingRequest,
-    path.resolve(options.outputDir, nextName),
-    function (err) {
-      callback(err, 'module.exports = ' + JSON.stringify(options.urlPath + nextName) + ';');
-    }
-  );
+  if (options.outputDir) {
+    fs.copy(
+      remainingRequest,
+      path.resolve(options.outputDir, nextName),
+      function (error) {
+        callback(error, source);
+      }
+    );
+  } else {
+    callback(null, source);
+  }
 };
