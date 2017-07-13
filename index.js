@@ -1,17 +1,7 @@
 var loaderUtils = require('loader-utils');
 var fs = require('fs-extra');
 var path = require('path');
-var fnv = require('fnv');
-
-function createToken(request) {
-  var h = new fnv.FNV();
-  h.update(Buffer(request));
-  return h.digest('hex');
-}
-
-/**
- * @todo Add require hook for SSR
- */
+var createToken = require('./createToken');
 
 module.exports = function () {};
 
